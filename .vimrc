@@ -32,8 +32,8 @@ Plug 'majutsushi/tagbar'
 Plug 'Raimondi/delimitMate'
 " 10. 自动补全
 Plug 'Valloric/YouCompleteMe'
-" 11. 语法检查
-Plug 'vim-syntastic/syntastic'
+" 11. 语法检查 - 手动安装
+" Plug 'vim-syntastic/syntastic'
 " 12. Python补全器
 Plug 'davidhalter/jedi-vim'
 
@@ -102,30 +102,31 @@ nmap <c-r> :TagbarToggle<CR>
 
 " 17. YouCompleteMe自动补全
 let g:ycm_global_ycm_extra_conf = '$HOME/.vim/plugged/YouCompleteMe/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = ''
 let g:ycm_seed_identifiers_with_syntax = 1
 " 设置输入触发长度
 let g:ycm_min_num_of_chars_for_completion=2
 " 设置语义补全触发器，这里设置为只要输入两个字符就触发
-let g:ycm_semantic_triggers =  {
-                        \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-                        \ 'cs,lua,javascript': ['re!\w{2}'],
-                        \ }
+" let g:ycm_semantic_triggers =  {
+"                        \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+"                        \ 'cs,lua,javascript': ['re!\w{2}'],
+"                        \ }
 " 禁止ycm打开函数原型预览窗口
 set completeopt=menu,menuone
 let g:ycm_add_preview_to_completeopt = 0
 " 文件类型白名单，只有打开这里面的文件类型时才启用ycm的补全，防止打开一些比较大的非代码文件时ycm卡住
 let g:ycm_filetype_whitelist = {
-                        \ "c":1,
-                        \ "cpp":1,
-                        \ "cc":1,
-                        \ "h":1,
-                        \ "hpp":1,
-                        \ "cxx":1,
-                        \ "yml":1,
-                        \ "py":1,
-                        \ "java":1,
-                        \ "conf":1,
-                        \ "tex":1,
+                        \ 'c':1,
+                        \ 'cpp':1,
+                        \ 'cc':1,
+                        \ 'h':1,
+                        \ 'hpp':1,
+                        \ 'cxx':1,
+                        \ 'yml':1,
+                        \ 'py':1,
+                        \ 'java':1,
+                        \ 'conf':1,
+                        \ 'tex':1,
                         \ }
 " 补全完成后自动关闭预览窗口
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -141,11 +142,11 @@ let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 " 设置回车为补全确认键
 let g:ycm_key_list_stop_completion = ['<CR>']
 " 补全触发键
-let g:ycm_key_invoke_completion = "<D-/>"
+let g:ycm_key_invoke_completion = '<c-/>'
 " ultisnips插件
 let g:ycm_use_ultisnips_completer = 1
 " 跳转到定义处
-" nmap <c-g> :YcmCompleter GoToDefinitionElseDeclaration <C-R>=expand('<cword>')<CR><CR>
+nnoremap <c-g> :YcmCompleter GoToDefinition<CR>
 " 开启debug模式
 " let g:ycm_log_level = 'debug'
 " 字符串中输入也能补全
@@ -156,9 +157,11 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 " 使用syntastic语法检查器
 let g:ycm_register_as_syntastic_checker = 1
-" let g:ycm_path_to_python_interpreter='/anaconda3/bin/python'
+" let g:ycm_path_to_python_interpreter='/usr/bin/python'
 " let g:ycm_path_to_c_interpreter='/usr/bin/gcc'
 " let g:ycm_path_to_cpp_interpreter='/usr/bin/g++'
+
+
 " 18. 开启系统粘贴板
 set clipboard+=unnamedplus
 
@@ -198,9 +201,11 @@ let g:syntastic_c_compiler = 'gcc'
 " c++11支持
 let g:syntastic_cpp_compiler_options = '-std=c++11'
 " Python检查器
-let g:syntastic_python_checkers=['pylint']
+let g:syntastic_python_checkers = ['pylint']
 " Tex语法检查器
 let g:syntastic_tex_checkers = ['lacheck', 'text/language_check']
+" 执行本条命令使插件生效
+execute pathogen#infect()
 
 " 24. Python补全插件Jedi
 " if has('python3')
