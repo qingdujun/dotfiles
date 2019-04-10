@@ -32,8 +32,8 @@ Plug 'majutsushi/tagbar'
 Plug 'Raimondi/delimitMate'
 " 10. 自动补全
 Plug 'Valloric/YouCompleteMe'
-" 11. 语法检查 - 手动安装
-" Plug 'vim-syntastic/syntastic'
+" 11. 语法检查 - pathogen
+Plug 'vim-syntastic/syntastic'
 " 12. Python补全器
 Plug 'davidhalter/jedi-vim'
 
@@ -187,6 +187,8 @@ set statusline+=%*
 
 let g:syntastic_error_symbol='x'
 let g:syntastic_warning_symbol='!'
+let g:syntastic_style_error_symbol='?'
+let g:syntastic_style_warning_symbol='>'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 " 打开时检查语法
@@ -201,10 +203,10 @@ let g:syntastic_c_compiler = 'gcc'
 " c++11支持
 let g:syntastic_cpp_compiler_options = '-std=c++11'
 " Python检查器
-let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_checkers = ['flake8']
 " Tex语法检查器
 let g:syntastic_tex_checkers = ['lacheck', 'text/language_check']
-" 执行本条命令使插件生效
+" 执行本条命令使插件生效--pathogen
 execute pathogen#infect()
 
 " 24. Python补全插件Jedi
@@ -213,6 +215,10 @@ execute pathogen#infect()
 "    let g:jedi#force_py_version = 3
 "    let g:pymode_python = 'python3'
 " endif
+" Jedi插件不支持Python3，强制为2.7版本
+let g:jedi#force_py_version = 3
+" let g:pymode_python = 'python'
+
 
 " 25. vim-latex配置
 " 总是生成文件名
