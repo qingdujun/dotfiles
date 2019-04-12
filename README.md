@@ -1,4 +1,6 @@
-# .vimrc说明手册
+# dotfiles说明手册
+
+## .vimrc
 
 该配置主要用来编写`c/c++`、`python`和`LaTeX`。
 
@@ -8,4 +10,6 @@
 
 - ...
 
-更新中
+## xelatax.json
+
+用来配合vs code编写latax，pdf采用skim
