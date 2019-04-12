@@ -1,0 +1,88 @@
+{
+    "files.autoSave": "afterDelay",
+    "latex-workshop.view.pdf.viewer": "external",
+    "files.eol": "\n",
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                // "-pdf",
+                // "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ],
+            "env": {}
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "xelatex 🔃",
+            "tools": [
+                "xelatex"
+            ]
+        },
+        {
+            "name": "xelatex ➞ bibtex ➞ xelatex × 2",
+            "tools": [
+                "xelatex",
+                "bibtex",
+                "xelatex",
+                "xelatex"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "tools": [
+                "pdflatex"
+            ]
+        }
+    ],
+
+    "latex-workshop.view.pdf.external.command": {               
+        "command": "/usr/local/bin/displayline", 
+        "args": [  
+            "0",                                              
+            "%PDF%"
+        ]
+    },
+    
+    "latex-workshop.view.pdf.external.synctex": {                
+        "command": "/usr/local/bin/displayline", 
+        "args": [                                                
+            "-forward-search",
+            "%TEX%",
+            "%LINE%",
+            "%PDF%"
+        ]
+    },
+    "editor.fontFamily": "Consolas, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 15,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "C_Cpp.updateChannel": "Insiders",
+
+    //"python.pythonPath": "/Users/qingdujun/venv/bin/python"
+}
