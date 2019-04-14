@@ -10,8 +10,8 @@
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
-                // "-pdf",
-                // "-outdir=%OUTDIR%",
+                "-pdf",
+                "-outdir=%OUTDIR%",
                 "%DOC%"
             ],
             "env": {}
@@ -34,7 +34,7 @@
                 "%DOCFILE%"
             ],
             "env": {}
-        }
+        },
     ],
     "latex-workshop.latex.recipes": [
         {
@@ -59,30 +59,34 @@
             ]
         }
     ],
-
-    "latex-workshop.view.pdf.external.command": {               
-        "command": "/usr/local/bin/displayline", 
-        "args": [  
-            "0",                                              
+    "latex-workshop.view.pdf.external.command": {
+        "command": "/usr/local/bin/displayline",
+        "args": [
+            "0",
             "%PDF%"
         ]
     },
-    
-    "latex-workshop.view.pdf.external.synctex": {                
-        "command": "/usr/local/bin/displayline", 
-        "args": [                                                
+    "latex-workshop.view.pdf.external.synctex": {
+        "command": "/usr/local/bin/displayline",
+        "args": [
             "-forward-search",
             "%TEX%",
             "%LINE%",
             "%PDF%"
         ]
     },
+    // "latex-workshop.latexindent.args": [
+    //     "-c",
+    //     "%DIR%/",
+    //     "%TMPFILE%",
+    //     // "-y=\"defaultIndent: '%INDENT%'\"",
+    //     "-y=defaultIndent: '%INDENT%'"
+    // ], 
     "editor.fontFamily": "Consolas, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 15,
     "git.autofetch": true,
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
     "C_Cpp.updateChannel": "Insiders",
-
     //"python.pythonPath": "/Users/qingdujun/venv/bin/python"
 }
